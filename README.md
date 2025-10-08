@@ -231,7 +231,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- **Your Name** - *Initial work* - [YourGitHub](https://github.com/yourusername)
+- **Jawad ul bahar** - *Web Apps Developer* - [GitHub](https://github.com/Jawad-Ul-Bahar)
 
 ---
 
@@ -248,9 +248,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you have any questions or need help:
 
-- 📧 Email: your.email@example.com
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/Online-Images-Hub/issues)
-- 📖 Documentation: [Wiki](https://github.com/yourusername/Online-Images-Hub/wiki)
+- 📧 Email: jawadulbahar@gmail.com.com
+- 🐛 Issues: [GitHub Issues](https://github.com/Jawad-Ul-Bahar/Online-Images-Hub/issues)
+- 📖 Documentation: [Wiki](https://github.com/Jawad-Ul-Bahar/Online-Images-Hub/wiki)
 
 ---
 
