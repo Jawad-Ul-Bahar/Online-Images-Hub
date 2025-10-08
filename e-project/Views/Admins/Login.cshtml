@@ -1,0 +1,97 @@
+﻿@model e_project.Models.Admin
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Admin Login";
+}
+
+<!-- Google Fonts and Font Awesome -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="~/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+<!-- SB Admin CSS -->
+<link href="~/admin/css/sb-admin-2.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background: linear-gradient(135deg, #4e73df, #224abe);
+        font-family: 'Nunito', sans-serif;
+    }
+    .login-card {
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+    .bg-login-image {
+        background: url('/admin/img/login-bg.jpg') center center;
+        background-size: cover;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="card o-hidden shadow-lg my-5 login-card">
+                <div class="row g-0">
+                    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                    <div class="col-lg-6 bg-white">
+                        <div class="p-5">
+                            <div class="text-center mb-4">
+                                <h1 class="h4 text-gray-900">Admin Portal</h1>
+                                <p class="small text-muted">Sign in to manage the system</p>
+                            </div>
+
+                            <form asp-action="Login" method="post" class="user">
+                                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                                <div class="form-group mb-3">
+                                    <input asp-for="Email" class="form-control form-control-user" placeholder="Enter Email..." />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <input asp-for="Password" type="password" class="form-control form-control-user" placeholder="Password" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox small">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-user btn-block mt-3">Login</button>
+
+                                <hr>
+                                <a href="#" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Login with Google
+                                </a>
+                                <a href="#" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                </a>
+                            </form>
+
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="#">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" asp-action="Register">Create an Account!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="~/admin/vendor/jquery/jquery.min.js"></script>
+<script src="~/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="~/admin/js/sb-admin-2.min.js"></script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

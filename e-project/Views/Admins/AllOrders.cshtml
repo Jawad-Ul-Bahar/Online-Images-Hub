@@ -1,0 +1,81 @@
+﻿@model List<e_project.ViewModels.AdminOrderViewModel>
+
+@{
+    ViewData["Title"] = "All Orders";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mb-4">📦 All Orders</h2>
+
+@foreach (var order in Model)
+{
+    <div class="card mb-5 shadow rounded-3 border-0">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <div>
+                <strong>Order #@order.OrderId</strong> — @order.UserEmail
+            </div>
+            <span class="badge bg-light text-dark px-3 py-1">@order.Status</span>
+        </div>
+
+        <div class="card-body">
+            <div class="mb-3">
+                <p><strong>Payment Method:</strong> @order.PaymentMethod</p>
+                <p><strong>Shipping Address:</strong> @order.ShippingAddress</p>
+                <p><strong>Date:</strong> @order.OrderDate.ToString("dd MMM yyyy")</p>
+            </div>
+
+            <h5 class="mb-3">🖼️ Photos</h5>
+            <table class="table table-striped table-hover table-bordered rounded">
+                <thead class="table-light">
+                    <tr>
+                        <th>Photo</th>
+                        <th>Print Size</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in order.PhotoOrderItems)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@item.PhotoFilePath"
+                                     alt="Photo"
+                                     class="img-thumbnail shadow-sm"
+                                     style="max-width: 100px; cursor:pointer;"
+                                     onclick="showModal('@item.PhotoFilePath')" />
+                            </td>
+                            <td>@item.PrintSize</td>
+                            <td>@item.Quantity</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <hr class="my-4" />
+
+            <form asp-action="UpdateOrderStatus" asp-controller="Admins" method="post" class="row g-2 align-items-center">
+                <input type="hidden" name="orderId" value="@order.OrderId" />
+
+                <div class="col-auto">
+                    <label for="newStatus-@order.OrderId" class="col-form-label"><strong>Update Status:</strong></label>
+                </div>
+                <div class="col-auto">
+                    <select id="newStatus-@order.OrderId" name="newStatus" class="form-select">
+                        <option value="Pending" selected="@(order.Status == "Pending" ? "selected" : null)">Pending</option>
+                        <option value="Delivered" selected="@(order.Status == "Delivered" ? "selected" : null)">Delivered</option>
+                    </select>
+                </div>
+
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-outline-primary">💾 Update</button>
+                </div>
+
+                <div class="col-auto">
+                    <a asp-action="VerifyPayment" asp-route-orderId="@order.OrderId" class="btn btn-outline-success">
+                        🔍 Verify Payment
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+}

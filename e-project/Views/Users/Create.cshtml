@@ -1,0 +1,80 @@
+﻿@model e_project.Models.User
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_Layout";
+}
+<style>
+    .form-control:focus {
+        border-color: #2eca6a;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.2);
+    }
+
+    .form-label {
+        margin-bottom: 0.4rem;
+    }
+
+    .card {
+        background: #fff;
+    }
+</style>
+
+<main class="main">
+
+    <!-- Register Section -->
+    <section id="register" class="section mt-5">
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Create Your Account</h2>
+            <p>Join MyImage Prints to start ordering high-quality photo prints.</p>
+        </div>
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card shadow-sm p-4 rounded-4 border-0 bg-light">
+                        <form asp-action="Create" method="post" novalidate>
+                            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                            <div class="form-group mb-4">
+                                <label asp-for="FullName" class="form-label fw-semibold">Full Name</label>
+                                <input asp-for="FullName" class="form-control rounded-pill p-3" placeholder="e.g. John Doe" />
+                                <span asp-validation-for="FullName" class="text-danger small"></span>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label asp-for="Email" class="form-label fw-semibold">Email</label>
+                                <input asp-for="Email" class="form-control rounded-pill p-3" placeholder="e.g. john@example.com" />
+                                <span asp-validation-for="Email" class="text-danger small"></span>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label asp-for="Password" class="form-label fw-semibold">Password</label>
+                                <input asp-for="Password" class="form-control rounded-pill p-3" placeholder="Choose a secure password" />
+                                <span asp-validation-for="Password" class="text-danger small"></span>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label asp-for="ConfirmPassword" class="form-label fw-semibold">Confirm Password</label>
+                                <input asp-for="ConfirmPassword" class="form-control rounded-pill p-3" placeholder="Retype your password" />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-success w-100 py-2 rounded-pill fs-5">
+                                Create Account
+                            </button>
+
+                            <p class="text-center mt-3 mb-0">
+                                Already have an account?
+                                <a asp-controller="User" asp-action="Login" class="text-primary fw-bold">Login here</a>.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

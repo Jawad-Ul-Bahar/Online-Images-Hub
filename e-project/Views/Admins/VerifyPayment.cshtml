@@ -1,0 +1,21 @@
+﻿@model e_project.Models.Order
+@{
+    ViewData["Title"] = "Verify Payment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>🔐 Verify Payment - Order #@Model.Id</h3>
+
+<p><strong>User:</strong> @Model.User.Email</p>
+<p><strong>Total Price:</strong> @Model.TotalAmount</p>
+<p><strong>Payment Method:</strong> @Model.PaymentMethod</p>
+
+@if (Model.PaymentMethod?.ToLower() == "creditcard")
+{
+    <p><strong>Decrypted Credit Card:</strong> <span class="text-danger">@ViewBag.DecryptedCard</span></p>
+
+    <form asp-action="ConfirmPayment" asp-controller="Admins" method="post">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <button type="submit" class="btn btn-success">✅ Confirm Payment</button>
+    </form>
+}

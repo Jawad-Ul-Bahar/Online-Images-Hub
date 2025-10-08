@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\amir_\\Desktop\\e-project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{82223C22-D452-4662-B60E-169F769200FE}|e-project\\e-project.csproj|c:\\users\\amir_\\desktop\\e-project\\e-project\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{82223C22-D452-4662-B60E-169F769200FE}|e-project\\e-project.csproj|solutionrelative:e-project\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\amir_\\Desktop\\e-project\\e-project\\appsettings.json",
+              "RelativeDocumentMoniker": "e-project\\appsettings.json",
+              "ToolTip": "C:\\Users\\amir_\\Desktop\\e-project\\e-project\\appsettings.json",
+              "RelativeToolTip": "e-project\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-27T11:39:06.466Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

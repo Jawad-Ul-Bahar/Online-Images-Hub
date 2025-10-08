@@ -1,0 +1,131 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container-fluid">
+    <h1 class="h3 mb-4 text-primary">📊 Admin Dashboard</h1>
+
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Users</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.TotalUsers</div>
+                    </div>
+                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Orders</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.TotalOrders</div>
+                    </div>
+                    <i class="fas fa-box fa-2x text-gray-300"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Photos</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.TotalPhotos</div>
+                    </div>
+                    <i class="fas fa-image fa-2x text-gray-300"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Revenue</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">PKR @ViewBag.TotalRevenue.ToString("N0")</div>
+                    </div>
+                    <i class="fas fa-coins fa-2x text-gray-300"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔵 Recent Users -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-primary text-white">
+            <h6 class="m-0 font-weight-bold">👤 Recent Users</h6>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-bordered mb-0 text-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in ViewBag.RecentUsers)
+                        {
+                            <tr>
+                                <td>@user.Id</td>
+                                <td>@user.FullName</td>
+                                <td>@user.Email</td>
+                                <td>@user.Role</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🟣 Recent Orders -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-info text-white">
+            <h6 class="m-0 font-weight-bold">🖼️ Recent Orders</h6>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-bordered mb-0 text-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Order ID</th>
+                            <th>User</th>
+                            <th>Total</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in ViewBag.RecentOrders)
+                        {
+                            <tr>
+                                <td>#@order.Id</td>
+                                <td>@order.User?.FullName</td>
+                                <td>PKR @order.TotalAmount</td>
+                                <td>@order.OrderDate.ToString("dd MMM yyyy")</td>
+                                <td>
+                                    <span class="badge
+                                            @(order.Status == "Pending" ? "bg-warning text-dark" :
+                                                                                    order.Status == "Paid" ? "bg-success" :
+                                                                                    order.Status == "Delivered" ? "bg-primary" : "bg-secondary")">
+                                    @order.Status
+                                </span>
+                            </td>
+                        </tr>
+                                                }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
